@@ -4,13 +4,12 @@ var
   chai = require('chai'),
   expect = chai.expect,
   /**/
-  Process = require('../examples/promise/Process'),
-  AsyncProcess = require('../examples/promise/AsyncProcess');
+  PromiseDummy = require('../examples/promise/PromiseDummy');
 
 describe('Complex Async Process', function () {
   this.timeout(2000);
 
-  it('should run every async process and succeed', function () {
+  it('should run every promise and return true', function () {
 
     var
       result = null,
@@ -24,9 +23,9 @@ describe('Complex Async Process', function () {
     });
 
     return Promise.all([
-      AsyncProcess.doSomeAsyncStuff(input[0]),
-      AsyncProcess.doSomeAsyncStuff(input[1]),
-      AsyncProcess.doSomeAsyncStuff(input[2])
+      PromiseDummy.checkParity(input[0]),
+      PromiseDummy.checkParity(input[1]),
+      PromiseDummy.checkParity(input[2])
     ])
       .then(values => {
         result = values[0] && values[1] && values[2];
