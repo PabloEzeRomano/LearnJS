@@ -16,7 +16,8 @@
     "url": "https://github.com/FollowersOfTheApocalypse/LearnJS.git"
   },
   "dependencies": {
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "lodash": "^4.11.2"
   },
   "devDependencies": {
     "sinon": "^1.17.4"
