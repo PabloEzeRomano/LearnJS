@@ -3,13 +3,31 @@
 var
   chai = require('chai'),
   expect = chai.expect,
+  _ = require('lodash'),
   /**/
   PromiseDummy = require('../examples/promise/PromiseDummy');
 
 describe('Complex Async Process', function () {
-  this.timeout(2000);
 
-  it('should run every promise and return true', function () {
+  var
+    even = _.range(0, 100000, 2),
+    odd = _.range(1, 99999, 2);
+
+  it('should return a promise and check the parity (false)', function () {
+    return PromiseDummy.checkParity(_.sample(odd))
+      .then(value => {
+        expect(value).to.equal(false);
+      });
+  });
+
+  it('should return a promise and check the parity (true)', function () {
+    return PromiseDummy.checkParity(_.sample(even))
+      .then(value => {
+        expect(value).to.equal(true);
+      });
+  });
+
+  it('should run every promise', function () {
 
     var
       result = null,
