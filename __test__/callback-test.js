@@ -12,7 +12,7 @@ var
 
 describe('Callback Exercise', function () {
 
-  it('should return self after invocation', function () {
+  it('should return self after invocation and fill in the report', function () {
 
     var
       report = {
@@ -20,13 +20,16 @@ describe('Callback Exercise', function () {
         steps : [],
         result : []
       },
-      start = startCallback.call(report),
-      steps = stepCallback.call(report),
-      end = endCallback.call(report);
+      start = startCallback.call(report, 10),
+      steps = stepCallback.call(report, '5 calculated'),
+      end = endCallback.call(report, [1,2,3]);
 
     expect(start).to.equal(report);
     expect(steps).to.equal(report);
     expect(end).to.equal(report);
+    expect(report.operations).to.equal(10);
+    expect(report.steps[0]).to.equal('5 calculated');
+    expect(report.result).to.eql([1,2,3]);
   });
 
   it('should calculate if numbers are multiple and fill in the report', function () {
