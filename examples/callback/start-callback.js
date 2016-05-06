@@ -1,17 +1,9 @@
 'use strict';
 
-module.exports = {
+module.exports = function (operations)  {
+    
+  this.operations = operations;
 
-  call : function (report, fillingData) {
-    report.operations = fillingData;
-    return report
-  },
+  return this
   
-  bind : function (report) {
-    return {
-      call : this.call,
-      report : report
-    }
-  }
-
-};
+};  

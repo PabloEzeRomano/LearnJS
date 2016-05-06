@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = (numbers, multiple, step, operations, steps, result) => {
+module.exports = function (numbers, multiple, step, operations, steps, result) {
   
   var opNum = 0,
     numberList = [];
@@ -11,11 +11,11 @@ module.exports = (numbers, multiple, step, operations, steps, result) => {
       numberList.push(number)
     }
     if (opNum % step === 0){
-      steps.call(steps.report, `${opNum} calculated`);
+      steps(`${opNum} calculated`);
     }
   });
   
-  operations.call(operations.report, opNum);
-  result.call(result.report, numberList);
+  operations(opNum);
+  result(numberList);
   
 };
