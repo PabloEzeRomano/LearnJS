@@ -7,7 +7,7 @@ var
   /**/
   PromiseDummy = require('../examples/promise/PromiseDummy');
 
-describe('Complex Async Process', function () {
+describe('Promises Exercise', function () {
 
   var
     even = _.range(0, 100000, 2),
