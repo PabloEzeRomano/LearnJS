@@ -2,20 +2,22 @@
 
 module.exports = function (numbers, multiple, step, operations, steps, result) {
   
-  var opNum = 0,
-    numberList = [];
+  var numberList = [];
+
+  operations(numbers.length);
   
-  numbers.forEach((number) => {
-    opNum++;
+  numbers.forEach((number, index) => {
+    
     if (number % multiple === 0) {
       numberList.push(number)
     }
+    var opNum = index+1;
+
     if (opNum % step === 0){
       steps(`${opNum} calculated`);
     }
   });
-  
-  operations(opNum);
+    
   result(numberList);
   
 };
